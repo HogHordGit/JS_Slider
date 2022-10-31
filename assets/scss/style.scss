@@ -67,13 +67,14 @@ body {
     margin-bottom: 1em;
 }
 
-.controls {
+.indicators, .controls {
     display: flex;
     justify-content: center;
     gap: 0.5em;
+    margin-bottom: 1em;
 }
 
-.control {
+.indicator, .control {
     background-color: #cccccc;
     display: block;
     cursor: pointer;
@@ -83,4 +84,9 @@ body {
     min-width: 75px;
     text-align: center;
     user-select: none;
+}
+
+.indicator.active {
+    background-color: tomato;
+    color: #ffffff;
 }

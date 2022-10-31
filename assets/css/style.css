@@ -67,6 +67,7 @@ body {
   margin-bottom: 1em;
 }
 
+.indicators,
 .controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -75,9 +76,12 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
 
+  margin-bottom: 1em;
+
   gap: 0.5em;
 }
 
+.indicator,
 .control {
   display: block;
 
@@ -94,4 +98,9 @@ body {
   border: 1px solid gray;
   border-radius: 0.5em;
   background-color: #cccccc;
+}
+
+.indicator.active {
+  color: #ffffff;
+  background-color: tomato;
 }
