@@ -1,33 +1,54 @@
 const slides = document.querySelectorAll(".slide");
-const pauseButton = document.querySelector("#pause");
-const previousButton = document.querySelector("#previous");
-const nextButton = document.querySelector("#next");
-
+const pauseBtn = document.querySelector("#btn-pause");
+const prevBtn = document.querySelector("#btn-prev");
+const nextBtn = document.querySelector("#btn-next");
 
 let currentSlide = 0;
 let isPlaying = true;
 let timerID = null;
 
-function nextSlide() {
+function goToNth(n) {
     slides[currentSlide].classList.remove("active");
-
-    currentSlide = (currentSlide + 1) % slides.length;
-
+    currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].classList.add("active");
 }
 
-function pausePlayHandler() {
-    if (isPlaying) {
-        isPlaying = false;
-        clearInterval(timerID);
-        pauseButton.innerHTML = "Play";
-    } else {
-        isPlaying = true;
-        timerID = setInterval(nextSlide, 1000);
-        pauseButton.innerHTML = "Pause";
-    }
+function goToPrev() {
+    goToNth(currentSlide - 1);
 }
 
-pauseButton.addEventListener("click", pausePlayHandler);
+function goToNext() {
+    goToNth(currentSlide + 1);
+}
 
-timerID = setInterval(nextSlide, 1000);
+function pause() {
+    isPlaying = false;
+    clearInterval(timerID);
+    pauseBtn.innerHTML = "Play";
+}
+
+function play() {
+    isPlaying = true;
+    timerID = setInterval(goToNext, 1000);
+    pauseBtn.innerHTML = "Pause";
+}
+
+function pausePlayHandler() {
+    isPlaying ? pause() : play();
+}
+
+function next() {
+    goToNext();
+    pause();
+}
+
+function prev() {
+    goToPrev();
+    pause();
+}
+
+pauseBtn.addEventListener("click", pausePlayHandler);
+prevBtn.addEventListener("click", prev);
+nextBtn.addEventListener("click", next);
+
+timerID = setInterval(goToNext, 1000);
