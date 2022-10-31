@@ -51,4 +51,4 @@ pauseBtn.addEventListener("click", pausePlayHandler);
 prevBtn.addEventListener("click", prev);
 nextBtn.addEventListener("click", next);
 
-timerID = setInterval(goToNext, 1000);
+timerID = setInterval(goToNext, 2000);
