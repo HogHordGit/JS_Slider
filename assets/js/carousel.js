@@ -4,9 +4,6 @@ function Carousel() {
     this.slides = this.container.querySelectorAll(".slide");
     this.indicatorsContainer = document.querySelector("#indicators-container");
     this.indicators = this.indicatorsContainer.querySelectorAll(".indicator");
-    this.pauseBtn = this.container.querySelector("#btn-pause");
-    this.prevBtn = this.container.querySelector("#btn-prev");
-    this.nextBtn = this.container.querySelector("#btn-next");
 }
 
 Carousel.prototype = {
@@ -17,6 +14,8 @@ Carousel.prototype = {
         this.CODE_SPACE = "Space";
         this.FA_PLAY = "<i class='fas fa-play-circle'></i>";
         this.FA_PAUSE = "<i class='fas fa-pause-circle'></i>";
+        this.FA_NEXT = "<i class='fas fa-angle-right'></i>";
+        this.FA_PREV = "<i class='fas fa-angle-left'></i>";
     
         this.startPosX = null;
         this.endPosX = null;
@@ -24,6 +23,23 @@ Carousel.prototype = {
         this.isPlaying = true;
         this.timerID = null;
         this.interval = 2000;
+    },
+    _initControls() {
+        const controls = document.createElement("div");
+        const PREV = `<div id="btn-prev" class="control control-prev">${this.FA_PREV}</i></div>`;
+        const PAUSE = `<div id="btn-pause" class="control control-pause">${this.FA_PAUSE}</div>`;
+        const NEXT = `<div id="btn-next" class="control control-next">${this.FA_NEXT}</div>`;
+
+        controls.classList.add("controls");
+        controls.setAttribute("id", "controls-container");
+
+        controls.innerHTML = PREV + PAUSE + NEXT;
+
+        this.container.append(controls);
+
+        this.pauseBtn = this.container.querySelector("#btn-pause");
+        this.prevBtn = this.container.querySelector("#btn-prev");
+        this.nextBtn = this.container.querySelector("#btn-next");
     },
     _goToNth(n) {
         this.slides[this.currentSlide].classList.toggle("active");
@@ -60,11 +76,6 @@ Carousel.prototype = {
         this.indicatorsContainer.addEventListener("click", this._indicate.bind(this));
         document.addEventListener("keydown", this._pressKey.bind(this));
     },
-    init() {
-        this._initProps();
-        this._initListeners();
-        this.timerID = setInterval(() => this._goToNext(), this.interval);
-    },
     pause() {
         this.isPlaying = false;
         clearInterval(this.timerID);
@@ -85,6 +96,12 @@ Carousel.prototype = {
     prev() {
         this._goToPrev();
         this.pause();
+    },
+    init() {
+        this._initProps();
+        this._initControls();
+        this._initListeners();
+        this.timerID = setInterval(() => this._goToNext(), this.interval);
     },
 };
 
