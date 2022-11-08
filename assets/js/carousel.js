@@ -1,13 +1,36 @@
-function Carousel() {
-    this.container = document.querySelector("#carousel");
-    this.slidesContainer = this.container.querySelector(".slides");
-    this.slides = this.container.querySelectorAll(".slide");
-    this.indicatorsContainer = document.querySelector("#indicators-container");
-    this.indicators = this.indicatorsContainer.querySelectorAll(".indicator");
+function Carousel(containerID = "#carousel",slidesID = ".slides", slideID = ".slide", interval = 2000) {
+    this.container = document.querySelector(containerID);
+    this.slidesContainer = this.container.querySelector(slidesID);
+    this.slides = this.container.querySelectorAll(slideID);
+
+    this.interval = interval;
 }
 
 Carousel.prototype = {
+    _initIndicators() {
+        const indicators = document.createElement("div");
+        
+        indicators.classList.add("indicators");
+        indicators.setAttribute("id", "indicators-container");
+
+        for(let i = 0; i < this.SLIDES_COUNT; i++) {
+            const indicator = document.createElement("div");
+
+            indicator.setAttribute("class", i !== 0 ? "indicator" : "indicator active");
+            indicator.dataset.slideTo = `${i}`;
+
+            indicators.append(indicator);
+        }
+        
+        this.container.append(indicators);
+
+        this.indicatorsContainer = document.querySelector("#indicators-container");
+        this.indicators = this.indicatorsContainer.querySelectorAll(".indicator");
+    },
     _initProps() {
+        this.currentSlide = 0;
+        this.isPlaying = true;
+
         this.SLIDES_COUNT = this.slides.length;
         this.CODE_LEFT_ARROW = "ArrowLeft";
         this.CODE_RIGHT_ARROW = "ArrowRight";
@@ -16,13 +39,6 @@ Carousel.prototype = {
         this.FA_PAUSE = "<i class='fas fa-pause-circle'></i>";
         this.FA_NEXT = "<i class='fas fa-angle-right'></i>";
         this.FA_PREV = "<i class='fas fa-angle-left'></i>";
-    
-        this.startPosX = null;
-        this.endPosX = null;
-        this.currentSlide = 0;
-        this.isPlaying = true;
-        this.timerID = null;
-        this.interval = 2000;
     },
     _initControls() {
         const controls = document.createElement("div");
@@ -100,6 +116,7 @@ Carousel.prototype = {
     init() {
         this._initProps();
         this._initControls();
+        this._initIndicators();
         this._initListeners();
         this.timerID = setInterval(() => this._goToNext(), this.interval);
     },
