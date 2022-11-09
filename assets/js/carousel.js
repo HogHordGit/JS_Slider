@@ -88,13 +88,16 @@ class Carousel {
         if (e.code === this.CODE_SPACE) this.pausePlay();
     }
     _initListeners() {
+        document.addEventListener("keydown", this._pressKey.bind(this));
         this.pauseBtn.addEventListener("click", this.pausePlay.bind(this));
         this.prevBtn.addEventListener("click", this.prev.bind(this));
         this.nextBtn.addEventListener("click", this.next.bind(this));
         this.indicatorsContainer.addEventListener("click", this._indicate.bind(this));
+        
         this.slidesContainer.addEventListener("mouseenter", this.pause.bind(this));
         this.slidesContainer.addEventListener("mouseleave", this.play.bind(this));
-        document.addEventListener("keydown", this._pressKey.bind(this));
+        this.slidesContainer.addEventListener("touchstart", this.pause.bind(this));
+        this.slidesContainer.addEventListener("touchend", this.play.bind(this));
     }
     _tick(flag = true) {
         if (!flag) return;
