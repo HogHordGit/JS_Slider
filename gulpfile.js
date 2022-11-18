@@ -108,8 +108,7 @@ function createStructure() {
       require('fs').writeFileSync(file[i][j], '');
       console.log(file[i][j]);
     }
-
-
+    
     resolve(true);
   }, 1000));
 }

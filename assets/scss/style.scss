@@ -1,81 +1,86 @@
-/*
-essential styles:
-these make the slideshow work
-*/
-
-.slides {
-    position: relative;
-    height: 150px;
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
-    user-select: none;
-}
-.slide {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.25s;
-    opacity: 0;
-    z-index: -999;
-}
-.active {
-    opacity: 1;
-    z-index: 0;
-}
-
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
-
-.slide {
-    font-size: 40px;
-    padding: 40px;
-    box-sizing: border-box;
-    background: #333;
-    color: #fff;
-}
-
-.slide:nth-of-type(1) {
-    background: red;
-}
-
-.slide:nth-of-type(2) {
-    background: orange;
-}
-
-.slide:nth-of-type(3) {
-    background: green;
-}
-
-.slide:nth-of-type(4) {
-    background: blue;
-}
-
-.slide:nth-of-type(5) {
-    background: purple;
-}
-
-/* customization */
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.slides {
+.slides-body {
+    position: relative;
+    height: 400px;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    user-select: none;
     margin-bottom: 1em;
+
+    &__slide {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.25s;
+        opacity: 0;
+        z-index: -999;
+        font-size: 40px;
+        padding: 40px;
+        box-sizing: border-box;
+        background: #333;
+        color: #fff;
+    }
 }
 
-.indicators, .controls {
+.constrols {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    &__swipe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        position: absolute;
+        width: 200px;
+        z-index: 999;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    &__swipe:hover {
+        opacity: 1;
+    }
+}
+
+.slides-body__slide:nth-of-type(1) {
+    background: red;
+}
+
+.slides-body__slide:nth-of-type(2) {
+    background: orange;
+}
+
+.slides-body__slide:nth-of-type(3) {
+    background: green;
+}
+
+.slides-body__slide:nth-of-type(4) {
+    background: blue;
+}
+
+.slides-body__slide:nth-of-type(5) {
+    background: purple;
+}
+
+.indicators {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 30px;
     justify-content: center;
     gap: 0.5em;
-    margin-bottom: 1em;
 }
 
-.indicator, .control {
+.indicator {
     background-color: #cccccc;
     display: block;
     cursor: pointer;
@@ -91,3 +96,26 @@ body {
     background-color: tomato;
     color: #ffffff;
 }
+
+.active {
+    opacity: 1;
+    z-index: 0;
+}
+
+.-left {
+    left: 0;
+    background-color: rgba(hsl(0, 0%, 0%), 0.11);
+    height: 100%;
+}
+
+.-right {
+    right: 0;
+    background-color: rgba(hsl(0, 0%, 0%), 0.11);
+    height: 100%;
+}
+
+.-pause {
+    font-size: 80px;
+}
+
+

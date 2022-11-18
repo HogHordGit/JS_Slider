@@ -24,7 +24,7 @@ class Carousel {
             indicators.append(indicator);
         }
         
-        this.container.append(indicators);
+        this.slidesContainer.append(indicators);
 
         this.indicatorsContainer = document.querySelector("#indicators-container");
         this.indicators = this.indicatorsContainer.querySelectorAll(".indicator");
@@ -42,18 +42,21 @@ class Carousel {
         this.FA_PREV = "<i class='fas fa-angle-left'></i>";
     }
     _initControls() {
-        const controls = document.createElement("div");
-        const PREV = `<div id="btn-prev" class="control control-prev">${this.FA_PREV}</i></div>`;
-        const PAUSE = `<div id="btn-pause" class="control control-pause">
-                       ${this.isPlaying ? this.FA_PAUSE : this.FA_PLAY}</div>`;
-        const NEXT = `<div id="btn-next" class="control control-next">${this.FA_NEXT}</div>`;
+        const CLASS_SWIPE = "constrols__swipe";
 
-        controls.classList.add("controls");
+        const controls = document.createElement("div");
+
+        const PREV = `<div id="btn-prev" class="constrols__swipe -left">${this.FA_PREV}</i></div>`;
+        const PAUSE = `<div id="btn-pause" class="constrols__swipe -pause">
+                       ${this.isPlaying ? this.FA_PAUSE : this.FA_PLAY}</div>`;
+        const NEXT = `<div id="btn-next" class="constrols__swipe -right">${this.FA_NEXT}</div>`;
+
+        controls.setAttribute("class", "slides-container__constrols constrols");
         controls.setAttribute("id", "controls-container");
 
         controls.innerHTML = PREV + PAUSE + NEXT;
 
-        this.container.append(controls);
+        this.slidesContainer.append(controls);
 
         this.pauseBtn = this.container.querySelector("#btn-pause");
         this.prevBtn = this.container.querySelector("#btn-prev");
@@ -94,10 +97,10 @@ class Carousel {
         this.nextBtn.addEventListener("click", this.next.bind(this));
         this.indicatorsContainer.addEventListener("click", this._indicate.bind(this));
         
-        this.slidesContainer.addEventListener("mouseenter", this.pause.bind(this));
-        this.slidesContainer.addEventListener("mouseleave", this.play.bind(this));
-        this.slidesContainer.addEventListener("touchstart", this.pause.bind(this));
-        this.slidesContainer.addEventListener("touchend", this.play.bind(this));
+        // this.slidesContainer.addEventListener("mouseenter", this.pause.bind(this));
+        // this.slidesContainer.addEventListener("mouseleave", this.play.bind(this));
+        // this.slidesContainer.addEventListener("touchstart", this.pause.bind(this));
+        // this.slidesContainer.addEventListener("touchend", this.play.bind(this));
     }
     _tick(flag = true) {
         if (!flag) return;

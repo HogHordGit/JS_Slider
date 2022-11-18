@@ -11,28 +11,33 @@ class SwipeCarousel extends Carousel {
 
         this.container.addEventListener("touchstart", this._swipeStart.bind(this));
         this.container.addEventListener("touchend", this._swipeEnd.bind(this));
-        this.slidesContainer.addEventListener("mousedown", this._swipeStart.bind(this));
-        this.slidesContainer.addEventListener("mouseup", this._swipeEnd.bind(this));
     }
     _swipeStart(e) {
-        if (e instanceof MouseEvent) {
-                this.startPosX = e.pageX;
-    
-            return;
-        }
         if (e instanceof TouchEvent) {
             this.startPosX = e.changedTouches[0].pageX;
         }
     }  
     _swipeEnd(e) {
-        if (e instanceof MouseEvent) {
-            this.endPosX = e.pageX;
-        }else if (e instanceof TouchEvent) {
+        if (e instanceof TouchEvent) {
             this.endPosX = e.changedTouches[0].pageX;
         }
     
         if (this.startPosX - this.endPosX < -100) this.prev();
         if (this.startPosX - this.endPosX > 100) this.next();
+
+        if ((this.startPosX - this.endPosX > -30) && (this.startPosX - this.endPosX < 30)) {
+            const ev = document.querySelectorAll(".constrols__swipe");
+
+            ev.forEach((item) => {
+                item.style.opacity = 1;
+            });
+
+            setTimeout(() => {
+                ev.forEach((item) => {
+                    item.style.opacity = 0;
+                });
+            }, 2000);
+        }
     }
 }
 
