@@ -12,13 +12,13 @@ class Carousel {
     _initIndicators() {
         const indicators = document.createElement("div");
         
-        indicators.classList.add("indicators");
+        indicators.setAttribute("class", "slides-body__indicators indicators");
         indicators.setAttribute("id", "indicators-container");
 
         for(let i = 0; i < this.SLIDES_COUNT; i++) {
             const indicator = document.createElement("div");
 
-            indicator.setAttribute("class", i !== 0 ? "indicator" : "indicator active");
+            indicator.setAttribute("class", i !== 0 ? "indicators__indicator" : "indicators__indicator active");
             indicator.dataset.slideTo = `${i}`;
 
             indicators.append(indicator);
@@ -27,7 +27,7 @@ class Carousel {
         this.slidesContainer.append(indicators);
 
         this.indicatorsContainer = document.querySelector("#indicators-container");
-        this.indicators = this.indicatorsContainer.querySelectorAll(".indicator");
+        this.indicators = this.indicatorsContainer.querySelectorAll(".indicators__indicator");
     }
     _initProps() {
         this.currentSlide = 0;
@@ -51,7 +51,7 @@ class Carousel {
                        ${this.isPlaying ? this.FA_PAUSE : this.FA_PLAY}</div>`;
         const NEXT = `<div id="btn-next" class="constrols__swipe -right">${this.FA_NEXT}</div>`;
 
-        controls.setAttribute("class", "slides-container__constrols constrols");
+        controls.setAttribute("class", "slides-body__constrols constrols");
         controls.setAttribute("id", "controls-container");
 
         controls.innerHTML = PREV + PAUSE + NEXT;
@@ -80,7 +80,7 @@ class Carousel {
     _indicate(e) {
         const target = e.target;
 
-        if (target && target.classList.contains("indicator")) {
+        if (target && target.classList.contains("indicators__indicator")) {
             this._goToNth(+target.dataset.slideTo);
             this.pause();
         }

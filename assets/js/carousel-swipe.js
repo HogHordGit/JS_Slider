@@ -1,11 +1,11 @@
 import Carousel from "./carousel.js";
 
 class SwipeCarousel extends Carousel {
-    // constructor(...args) {
-    //     super(...args);
-    //     this.slidesContainer = this.slideItems[0].parentElement;
-    // }
-
+    constructor(...args) {
+        super(...args);
+        this.flag = true;
+    }
+    
     _initListeners() {
         super._initListeners();
 
@@ -18,6 +18,8 @@ class SwipeCarousel extends Carousel {
         }
     }  
     _swipeEnd(e) {
+        const ev = document.querySelector(".-pause");
+
         if (e instanceof TouchEvent) {
             this.endPosX = e.changedTouches[0].pageX;
         }
@@ -25,19 +27,16 @@ class SwipeCarousel extends Carousel {
         if (this.startPosX - this.endPosX < -100) this.prev();
         if (this.startPosX - this.endPosX > 100) this.next();
 
-        if ((this.startPosX - this.endPosX > -30) && (this.startPosX - this.endPosX < 30)) {
-            const ev = document.querySelectorAll(".constrols__swipe");
-
-            ev.forEach((item) => {
-                item.style.opacity = 1;
-            });
-
-            setTimeout(() => {
-                ev.forEach((item) => {
-                    item.style.opacity = 0;
-                });
-            }, 2000);
-        }
+        // if (this.startPosX - this.endPosX > -30 && this.startPosX - this.endPosX < 30) {
+        //     if (this.flag == true) {
+        //         ev.style.opacity = 1;
+        //         this.flag = false;
+        //     } 
+        //     else if (this.flag == false) {
+        //         ev.style.opacity = 0;
+        //         this.flag = true;
+        //     }
+        // }
     }
 }
 

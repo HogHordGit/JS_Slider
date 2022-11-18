@@ -11,6 +11,14 @@ body {
     user-select: none;
     margin-bottom: 1em;
 
+    &__img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
     &__slide {
         position: absolute;
         left: 0px;
@@ -21,7 +29,6 @@ body {
         opacity: 0;
         z-index: -999;
         font-size: 40px;
-        padding: 40px;
         box-sizing: border-box;
         background: #333;
         color: #fff;
@@ -42,12 +49,9 @@ body {
         position: absolute;
         width: 200px;
         z-index: 999;
-        opacity: 0;
+        opacity: 1;
         transition: 0.3s ease-in-out;
         cursor: pointer;
-    }
-    &__swipe:hover {
-        opacity: 1;
     }
 }
 
@@ -80,21 +84,21 @@ body {
     gap: 0.5em;
 }
 
-.indicator {
+.indicators__indicator {
     background-color: #cccccc;
     display: block;
     cursor: pointer;
-    border: 1px solid gray;
+    border: 1px solid black;
     border-radius: 0.5em;
-    padding: 0.5em 1em;
+    padding: 2px;
     min-width: 75px;
     text-align: center;
     user-select: none;
 }
 
-.indicator.active {
-    background-color: tomato;
-    color: #ffffff;
+.indicators__indicator.active {
+    background-color: red;
+    color: #000000;
 }
 
 .active {
@@ -104,18 +108,26 @@ body {
 
 .-left {
     left: 0;
-    background-color: rgba(hsl(0, 0%, 0%), 0.11);
     height: 100%;
 }
 
 .-right {
     right: 0;
-    background-color: rgba(hsl(0, 0%, 0%), 0.11);
     height: 100%;
+}
+.-left:hover, .-right:hover  {
+    background-color: rgba(hsl(0, 0%, 0%), 0.15);
 }
 
 .-pause {
+    opacity: 0;
     font-size: 80px;
+    width: 150px;
+    height: 150px;
+    transition: 0.3s ease-in-out;
+}
+.-pause:hover {
+    opacity: 1;
 }
 
 
