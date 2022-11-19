@@ -68,9 +68,40 @@ body {
         background-color: #ffffff;
     }
     &__right-space {
+        position: relative;
         width: 30%;
         height: inherit;
-        background-color: blue;
+        background-color: #141414;
+    }
+    &__bg-block {
+        position: absolute;
+        bottom: 0;
+        right: 55px;
+        width: 489px;
+        height: 329px;
+        background-color: #99823D;
+    }
+}
+
+.soc-net {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+    &__list {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    &__link {
+        padding: 6px;
+        letter-spacing: 0.25em;
+        line-height: 3.09em;
+        font-size: 0.68rem;
+        text-decoration: none;
+        color: #000000;
     }
 }
 
@@ -106,12 +137,13 @@ body {
     }
     &__list {
         display: flex;
-        gap: 2.3125em;
+        gap: 30px;
         list-style: none;
         padding: 0;
         margin: 0;
     }
     &__link {
+        padding: 6px;
         letter-spacing: 0.25em;
         line-height: 3.09em;
         font-size: 0.68rem;
