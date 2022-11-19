@@ -4,16 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Slider</title>
+    <link rel="shortcut icon" type="image/png" href="assets/img/icon.png"/>
+    <title>Vantage</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="libs/normalize.css/normalize.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
  
-    <div class="carousel" id="carousel">
+    <div class="wrapper">
+        <header class="header">
+
+            <div class="header__content">
+                <div class="header__container">
+                    <div class="header__left-space">
+                        <div class="header__image">
+                            <img class="header__img" src="assets/img/header/bg.png" alt="bg">
+                        </div>
+                        <div class="header__soc-net"></div>
+                    </div>
+
+                    <div class="header__right-space"></div>
+                </div>
+            </div>
+
+            <nav class="header__menu menu">
+                <div class="menu__container">
+                    <div class="menu__logo">
+                        <img class="menu__logo-img" src="assets/img/menu/logo.png" alt="logo">
+                    </div>
+    
+                    <div class="menu__body">
+                        <div class="menu__architecture">
+                            <span class="menu__text-arc">Architecture</span>
+                            <span class="menu__text-mw">Made With</span>
+                            <img class="menu__img-heart" src="assets/img/menu/heart.png" alt="heart">
+                        </div>
+    
+                        <ol class="menu__list">
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">HOME</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">ABOUT</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">SERVICES</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">PROJECTS</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">NEWS</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">CONTACT</a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+
+        <main class="main"></main>
+        <footer class="footer"></footer>
+    </div>
+
+    <!-- <div class="carousel" id="carousel">
         <div id="slides-container" class="carousel__slides slides-body">
             <div class="slides-body__slide active">
                 <img class="slides-body__img" src="assets/img/inter_1.jpg" alt="">
@@ -31,7 +97,7 @@
                 <img class="slides-body__img" src="assets/img/inter_1.jpg" alt="">
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="assets/js/index.js" type="module"></script>
 

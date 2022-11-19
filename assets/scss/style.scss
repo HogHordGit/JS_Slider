@@ -1,5 +1,139 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+%container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #141414;
+}
+
+._container {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #141414;
+
+    &__content {
+        padding-top: 68px;
+        height: 100vh;
+    }
+    &__container {
+        display: flex;
+        height: calc(100vh - 68px);
+
+        @extend %container;
+        padding: 0;
+    }
+    &__left-space {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        position: relative;
+        width: 70%;
+        height: inherit;
+        background-color: red;
+    }
+    &__img {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 68px);
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+    &__soc-net {
+        height: 68px;
+        width: 100%;
+        background-color: #ffffff;
+    }
+    &__right-space {
+        width: 30%;
+        height: inherit;
+        background-color: blue;
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+    &__container {
+        display: flex;
+
+        @extend %container;
+        padding-left: 0;
+    }
+    &__body {
+        width: 100%;
+        height: 68px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo-img {
+        width: 190px;
+        height: 49px;
+    }
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 470px;
+        height: 136px;
+        background-color: #99823D;
+    }
+    &__list {
+        display: flex;
+        gap: 2.3125em;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    &__link {
+        letter-spacing: 0.25em;
+        line-height: 3.09em;
+        font-size: 0.68rem;
+        text-decoration: none;
+        color: #ffffff;
+    }
+    &__architecture {
+        display: flex;
+        gap: 5px;
+        margin-left: 35px;
+        color: #ffffff;
+    }
+    &__text-arc {
+        color: rgba(#ffffff, 0.75);
+        margin-top: 2px;
+        line-height: 1.7em;
+        font-size: 0.5625rem;
+    }
+    &__text-mw {
+        line-height: 1.7em;
+        font-size: 0.625rem;
+    }
 }
 
 .slides-body {
