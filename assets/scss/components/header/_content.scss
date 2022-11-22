@@ -2,16 +2,17 @@
 @use "../../mixins" as *;
 
 .desc-block {
+  position: absolute;
+  z-index: 2;
+  right: 130px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: absolute;
-  right: 130px;
 
   width: 584px;
   height: 455px;
   padding: 68px;
-  z-index: 2;
 
   background-color: #ffffff;
 
@@ -19,17 +20,16 @@
     position: sticky;
     right: 0;
   }
-
   @include md {
     width: 524px;
     height: 395px;
     padding: 38px;
   }
-
   @include sm {
     width: 100%;
-    text-align: center;
     padding: 20px;
+
+    text-align: center;
   }
 
   &__up-title {
@@ -53,8 +53,9 @@
     line-height: 67px;
 
     @include sm {
+      margin: 18px 0 10px 0;
+
       font-size: 45px;
-      margin: 18px 0px 10px 0px;
       line-height: 35px;
     }
   }
@@ -66,16 +67,16 @@
     line-height: 26px;
 
     @include sm {
-      font-size: 15px
+      font-size: 15px;
     }
   }
   &__buttons {
     display: flex;
 
     gap: 15px;
-
     @include sm {
       flex-direction: column;
+
       gap: 0;
     }
   }

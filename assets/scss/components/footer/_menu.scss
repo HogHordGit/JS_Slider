@@ -16,8 +16,8 @@
   background-color: #3d3d3d;
 
   @include md {
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
   }
 
   &__list {
@@ -29,11 +29,9 @@
     list-style: none;
 
     gap: 15px;
-
     @include md {
-      margin: 0px 0px 50px 0px;
+      margin: 0 0 50px 0;
     }
-
     @include sm {
       display: none;
     }

@@ -9,6 +9,7 @@
 
   @include sm {
     justify-content: center;
+
     padding-left: 0;
   }
 
@@ -22,7 +23,6 @@
     list-style: none;
 
     gap: 30px;
-
     @include sm {
       gap: 10px;
     }

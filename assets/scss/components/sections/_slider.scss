@@ -2,7 +2,7 @@
 @use "../../mixins" as *;
 
 .main {
-  padding: 80px 0 210px 0;
+  padding: 40px 0 210px 0;
 
   background-color: #f4f4f4;
 
@@ -10,6 +10,16 @@
     padding: 0;
 
     @extend %container;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    font-family: "Teko", sans-serif;
+    font-size: 55px;
+    font-weight: 400;
   }
 }
 
@@ -87,7 +97,6 @@
     @include md {
       width: 100px;
     }
-
     @include sm {
       width: 45px;
     }
@@ -99,8 +108,8 @@
   bottom: 30px;
 
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 
   width: 100%;
 

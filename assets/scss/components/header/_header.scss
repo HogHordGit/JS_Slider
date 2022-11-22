@@ -64,12 +64,13 @@
 
     @include lg {
       position: absolute;
-      justify-content: center;
-
       z-index: 0;
 
-      background-color: rgba(#141414, 0);
+      justify-content: center;
+
       width: 100%;
+
+      background-color: rgba(#141414, 0);
     }
   }
   &__bg-block {
