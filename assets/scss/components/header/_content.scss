@@ -1,0 +1,55 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.desc-block {
+  position: absolute;
+  z-index: 2;
+  right: 130px;
+
+  width: 584px;
+  height: 455px;
+  padding: 68px;
+
+  background-color: #ffffff;
+
+  &__up-title {
+    letter-spacing: 2.7625px;
+    text-transform: uppercase;
+
+    color: #99823d;
+
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+  &__title {
+    margin-bottom: 30px;
+
+    text-transform: capitalize;
+
+    font-family: "Teko", sans-serif;
+    font-size: 67px;
+    font-weight: 400;
+    line-height: 67px;
+  }
+  &__desc {
+    color: #141414;
+
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+  &__buttons {
+    display: flex;
+
+    gap: 15px;
+  }
+  &__btn {
+    margin-top: 15px;
+    padding: 25px 70px;
+
+    text-decoration: none;
+
+    color: #ffffff;
+  }
+}

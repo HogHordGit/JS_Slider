@@ -1,2 +1,41 @@
 @use "../presets" as *;
 @use "../mixins" as *;
+
+.active {
+  z-index: 0;
+
+  opacity: 1;
+}
+.-left {
+  left: 0;
+
+  height: 100%;
+}
+.-right {
+  right: 0;
+
+  height: 100%;
+}
+.-left:hover,
+.-right:hover {
+  background-color: rgba(hsl(0, 0%, 0%), 0.15);
+}
+.-pause {
+  width: 150px;
+  height: 150px;
+
+  transition: 0.3s ease-in-out;
+
+  opacity: 0;
+
+  font-size: 80px;
+}
+.-pause:hover {
+  opacity: 1;
+}
+.-light {
+  background-color: #99823d;
+}
+.-black {
+  background-color: #000000;
+}

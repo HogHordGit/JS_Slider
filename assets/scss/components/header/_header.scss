@@ -1,2 +1,72 @@
-@use "../presets" as *;
-@use "../mixins" as *;
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.header {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  background-color: #141414;
+
+  &__content {
+    height: 100vh;
+    padding-top: 68px;
+  }
+  &__container {
+    display: flex;
+
+    height: calc(100vh - 68px);
+    padding: 0;
+
+    @extend %container;
+  }
+  &__left-space {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 70%;
+    height: inherit;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: calc(100% - 68px);
+
+    object-fit: cover;
+  }
+  &__soc-net {
+    width: 100%;
+    height: 68px;
+
+    background-color: #ffffff;
+  }
+  &__right-space {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 30%;
+    height: inherit;
+
+    background-color: #141414;
+  }
+  &__bg-block {
+    position: absolute;
+    z-index: 1;
+    right: 55px;
+    bottom: 0;
+
+    width: 489px;
+    height: 329px;
+
+    background-color: #99823d;
+  }
+}
