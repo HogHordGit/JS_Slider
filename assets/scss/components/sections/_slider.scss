@@ -20,6 +20,10 @@
     font-family: "Teko", sans-serif;
     font-size: 55px;
     font-weight: 400;
+
+    @include sm {
+      font-size: 39px;
+    }
   }
 }
 
