@@ -7,8 +7,14 @@
 
   padding-left: 10px;
 
+  @include sm {
+    justify-content: center;
+    padding-left: 0;
+  }
+
   &__list {
     display: flex;
+    flex-wrap: wrap;
 
     margin: 0;
     padding: 0;
@@ -16,6 +22,10 @@
     list-style: none;
 
     gap: 30px;
+
+    @include sm {
+      gap: 10px;
+    }
   }
   &__link {
     padding: 6px;

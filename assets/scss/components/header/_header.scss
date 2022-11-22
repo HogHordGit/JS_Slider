@@ -30,6 +30,10 @@
 
     width: 70%;
     height: inherit;
+
+    @include lg {
+      width: 100%;
+    }
   }
   &__img {
     position: absolute;
@@ -57,6 +61,16 @@
     height: inherit;
 
     background-color: #141414;
+
+    @include lg {
+      position: absolute;
+      justify-content: center;
+
+      z-index: 0;
+
+      background-color: rgba(#141414, 0);
+      width: 100%;
+    }
   }
   &__bg-block {
     position: absolute;
@@ -68,5 +82,9 @@
     height: 329px;
 
     background-color: #99823d;
+
+    @include lg {
+      display: none;
+    }
   }
 }
