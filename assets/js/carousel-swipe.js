@@ -26,17 +26,6 @@ class SwipeCarousel extends Carousel {
     
         if (this.startPosX - this.endPosX < -100) this.prev();
         if (this.startPosX - this.endPosX > 100) this.next();
-
-        // if (this.startPosX - this.endPosX > -30 && this.startPosX - this.endPosX < 30) {
-        //     if (this.flag == true) {
-        //         ev.style.opacity = 1;
-        //         this.flag = false;
-        //     } 
-        //     else if (this.flag == false) {
-        //         ev.style.opacity = 0;
-        //         this.flag = true;
-        //     }
-        // }
     }
 }
 
