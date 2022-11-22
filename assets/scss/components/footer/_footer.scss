@@ -40,6 +40,10 @@
   align-items: center;
   justify-content: space-between;
 
+  @include sm {
+    flex-direction: column;
+  }
+
   &__list {
     display: flex;
 
@@ -49,6 +53,10 @@
     list-style: none;
 
     gap: 30px;
+    
+    @include sm {
+      margin-top: 5px;
+    }
   }
   &__link {
     padding: 6px;
@@ -63,6 +71,10 @@
   }
   &__copy {
     color: #ffffff;
+
+    @include sm {
+      margin-bottom: 5px;
+    }
   }
 }
 
@@ -74,10 +86,31 @@
 
   gap: 15px;
 
+  @include lg {
+    padding: 40px;
+  }
+
+  @include md {
+    padding: 10px;
+  }
+
+  @include sm {
+    flex-direction: column;
+  }
+
   &__input {
     width: 100%;
     height: 70px;
     padding-left: 50px;
+
+    @include md {
+      padding-left: 20px;
+    }
+
+    @include sm {
+      margin-top: 15px;
+      height: 60px;
+    }
   }
   &__button {
     padding: 18px 45px;
@@ -91,5 +124,13 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 34px;
+
+    @include md {
+      padding: 18px 30px;
+    }
+
+    @include sm {
+      padding: 10px 30px;
+    }
   }
 }

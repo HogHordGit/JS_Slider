@@ -15,6 +15,11 @@
 
   background-color: #3d3d3d;
 
+  @include md {
+    justify-content: center;
+    flex-direction: column;
+  }
+
   &__list {
     display: flex;
 
@@ -23,7 +28,15 @@
 
     list-style: none;
 
-    gap: 30px;
+    gap: 15px;
+
+    @include md {
+      margin: 0px 0px 50px 0px;
+    }
+
+    @include sm {
+      display: none;
+    }
   }
   &__link {
     padding: 6px;
@@ -40,5 +53,9 @@
     width: 130px;
     height: 35px;
     margin-top: 10px;
+
+    @include sm {
+      margin-bottom: 50px;
+    }
   }
 }
